@@ -3,43 +3,6 @@ const path = require("path");
 const puppeteer = require('puppeteer');
 const handlebars = require("handlebars");
 
-async function createPDF(data){
-
-	var templateHtml = fs.readFileSync(path.join(process.cwd(), 'templates/config.html'), 'utf8');
-	var template = handlebars.compile(templateHtml);
-	var html = template(data);
-
-  var pdfPath = path.join('pdf', `${data.customer}.pdf`);
-
-	var options = {
-		// headerTemplate: "<p></p>",
-		// footerTemplate: "<p></p>",
-		displayHeaderFooter: false,
-		format: 'Letter',
-		// margin: {
-		// 	top: "10px",
-		// 	bottom: "30px"
-		// },
-		printBackground: true,
-		path: pdfPath
-	}
-
-	const browser = await puppeteer.launch({
-		args: ['--no-sandbox'],
-		headless: true
-	});
-
-	var page = await browser.newPage();
-
-	
-	await page.setContent(html, {
-		waitUntil: 'networkidle0'
-	});
-
-	await page.pdf(options);
-	await browser.close();
-}
-
 const data = {
 	customer: "Matt (Test Customer) Barnett",
 	date: "04/22/2021",
@@ -58,5 +21,34 @@ const data = {
 		cost: "1.77"
 	}]
 }
+
+async function createPDF(data){
+	let templateHtml = fs.readFileSync(path.join(process.cwd(), 'templates/config.html'), 'utf8');
+	let template = handlebars.compile(templateHtml);
+	const html = template(data);
+  const pdfPath = path.join('pdf', `${data.customer}.pdf`);
+
+	const options = {
+		displayHeaderFooter: false,
+		format: 'Letter',
+		printBackground: true,
+		path: pdfPath
+	}
+
+	const browser = await puppeteer.launch({
+		args: ['--no-sandbox'],
+		headless: true
+	});
+
+	let page = await browser.newPage();
+	await page.setContent(html, {
+		waitUntil: 'networkidle0'
+	});
+
+	await page.pdf(options);
+	await browser.close();
+}
+
+
 
 createPDF(data);
