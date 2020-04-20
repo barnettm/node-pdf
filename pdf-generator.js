@@ -9,13 +9,9 @@ async function createPDF(data){
 	var template = handlebars.compile(templateHtml);
 	var html = template(data);
 
-	var milis = new Date();
-	milis = milis.getTime();
-
   var pdfPath = path.join('pdf', `${data.customer}.pdf`);
 
 	var options = {
-		// width: '1230px',
 		// headerTemplate: "<p></p>",
 		// footerTemplate: "<p></p>",
 		displayHeaderFooter: false,
