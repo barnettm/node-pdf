@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Configuration Summary</title>
+	<head>
+	<style type="text/css">
+		body{
+			width: 1200px;
+			margin: 0;
+			padding: 0px;
+			font-size: 16px;
+			line-height: 24px;
+			font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+			color: rgb(33,33,33);
+		}
+    .logo {
+      height: 100%;
+      padding: 20px 0;
+    }
+
+    .image-container{
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+    }
+		.config-header{
+			background: rgb(178,230,212);
+			color: rgb(102,102,102);
+			padding: 15px;
+			box-sizing: border-box;
+			display: block;
+			position: relative;
+      text-align: center;
+		}
+
+		.config-footer{
+			background: rgb(178,230,212);
+			color: rgb(102,102,102);
+			padding: 15px;
+			box-sizing: border-box;
+			display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+		}
+		.config-body{
+			width: 100%;
+			display: inline-block;
+			position: relative;
+			padding: 15px;
+			box-sizing: border-box;
+			vertical-align: top;
+		}
+  
+		.config-photo{
+			width: 28%;
+			display: inline-block;
+			position: relative;
+			vertical-align: top;
+			box-sizing: border-box;
+			margin-top: 15px;
+		}
+		.config-body .info{
+			border: #ccc solid 1px;
+			padding: 5px;
+			display: flex;
+      justify-content: space-between;
+		}
+    h3 {
+      padding-top: 20px;
+    }
+
+    .config-total {
+      display: flex;
+     justify-content: space-between;
+     margin-right: 10px;
+     margin-top: 10px;
+    font-size: 22px;
+     font-weight: 700;
+     margin-left: 16px;
+    }
+
+	</style>
+	<meta charset="utf-8">
+</head>
+<body>
+  <div class="config-header">
+    <div class="image-container">
+      <img src="https://www.kushco.com/wp-content/uploads/2018/08/KCH-Logo-WideStacked-Black.png" class="logo">
+    </div>
+		<h3>{{customer}}</h3>
+		<p>{{date}}</p>
+  </div>
+  <div class="config-total">
+    <div class="total-text">Total: </div>
+    <div class="total">${{total}}</div>
+  </div>
+	<div class="config-body">
+		<div class="info">
+      <div>Primary Item: {{primaryItem}}</div>
+      <div>Quantity: {{quantity}}</div>
+		</div>
+		<div class="obs">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="config-footer">
+		Kush Supply Co - All Rights reserved.
+	</div>
+</body>
+</html>

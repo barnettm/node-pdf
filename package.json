@@ -1,0 +1,16 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pdf-generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node pdf-generator.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.6",
+    "puppeteer": "^3.0.0"
+  }
+}
