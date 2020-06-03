@@ -18,3 +18,4 @@ Using:
      npm start
 
 File outputs to pdf/
+Delete current file before running
